@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<games>
+  <game id="1" gameDate="07.10.2020">
+    <homeTeam>Бавария Мюнхен</homeTeam>
+    <guestTeam>Ювентус</guestTeam>
+    <stadium>Альянц Арена</stadium>
+    <homeTeamCoeff>1,8</homeTeamCoeff>
+    <drawCoeff>2</drawCoeff>
+    <guestTeamCoeff>2,2</guestTeamCoeff>
+  </game>
+  <game id="2" gameDate="08.10.2020">
+    <homeTeam>Барселона</homeTeam>
+    <guestTeam>Аякс</guestTeam>
+    <stadium>Камп Ноу</stadium>
+    <homeTeamCoeff>1,1</homeTeamCoeff>
+    <drawCoeff>1,9</drawCoeff>
+    <guestTeamCoeff>2,9</guestTeamCoeff>
+  </game>
+  <game id="3" gameDate="08.10.2020">
+    <homeTeam>Манчестер Юнайтед</homeTeam>
+    <guestTeam>Реал Мадрид</guestTeam>
+    <stadium>Олд Траффорд</stadium>
+    <homeTeamCoeff>3,1</homeTeamCoeff>
+    <drawCoeff>2,2</drawCoeff>
+    <guestTeamCoeff>1,5</guestTeamCoeff>
+  </game>
+</games>

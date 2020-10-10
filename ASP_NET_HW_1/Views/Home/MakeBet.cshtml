@@ -1,0 +1,47 @@
+﻿@model ASP_NET_HW_1.Models.Bets.Football.GameSchedule
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("MakeBet", "Home", FormMethod.Post))
+{
+    <form>
+        <input type="hidden" name="GameScheduleId" , value="@Model.Id" />
+        <div id="firstDiv" class="d-flex justify-content-center">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline1">@Model.HomeTeamName</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline2">@Model.GuestTeamName</label>
+            </div>
+        </div>
+
+        <div id="secondDiv" class="row justify-content-center align-items-center h-100">
+            @Html.RadioButton("Coefficient", Model.HomeTeamCoefficient)
+            <span id="winFirst"><b>П1</b> @Model.HomeTeamCoefficient</span> <br />
+            @Html.RadioButton("Coefficient", Model.DrawCoefficient)
+            <span id="draw"><b>X</b> @Model.DrawCoefficient</span> <br />
+            @Html.RadioButton("Coefficient", Model.GuestTeamCoefficient)
+            <span id="winSecond"><b>П2</b> @Model.GuestTeamCoefficient</span> <br />
+        </div>
+
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-auto">
+                <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Константин" name="UserName">
+            </div>
+            <div class="col-auto">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">$</div>
+                    </div>
+                    <input type="number" class="form-control" id="inlineFormInputGroup" placeholder="10" min="1" name="Bet">
+                </div>
+            </div>
+            <div class="col-auto">
+                <input type="submit" class="btn btn-primary mb-2" value="Сделать ставку" formaction="/Home/MakeBet" formmethod="post" />
+                <input type="submit" class="btn btn-primary mb-2" value="Отмена" formaction="/Home/Index" formmethod="post" />
+            </div>
+        </div>
+    </form>
+}
