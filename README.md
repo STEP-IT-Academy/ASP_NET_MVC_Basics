@@ -1,4 +1,4 @@
-## Write an ASP.NET MVC application, which allows users to comment on the article displayed on the browser page.
+## Develop an ASP.NET MVC application, which allows users to comment on the article displayed on the browser page.
 ### The main page must contain:
 1. Article title;
 2. Illustration to the article;
