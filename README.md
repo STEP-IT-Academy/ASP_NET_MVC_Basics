@@ -1,4 +1,4 @@
-## Develop an ASP.NET MVC application "football sweepstakes" (Football betting), in which the user can place bets on the winning of the selected team in the specified game.
+## Develop an ASP.NET MVC application "football sweepstakes" (football betting), in which the user can place bets on the winning of the selected team in the specified game.
 #### The tournament schedule must be stored in an XML document.
 #### Bets placed are saved in the database. 
 #### To create a single application style, create all pages using the main page (MasterPage).
