@@ -12,3 +12,4 @@
 ### Full task description you can see [here](ASP_NET_MVC_HW_2.pdf).
 ## Solution
 ![Alt Text](background_video.gif)
+![Image alt](main_view.png)
