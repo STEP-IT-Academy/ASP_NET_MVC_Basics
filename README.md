@@ -10,3 +10,7 @@
 3. The add button;
 4. After adding the page with comments should be updated.
 ### Full task description you can see [here](ASP_NET_MVC_HW_2.pdf).
+## Solution
+![Alt Text](background_video.gif)
+![Image alt](main_view.png)
+![Image alt](main_view_2.png)
