@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
-using ASP_NET_HW_1.Models.Bets.Football;
 
-namespace ASP_NET_HW_1.Models
+namespace ASP_NET_HW_1.Models.Bets.Football
 {
     public class FootballBetContext : DbContext
     {
