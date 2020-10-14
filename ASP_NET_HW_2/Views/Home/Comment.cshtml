@@ -1,7 +1,55 @@
-﻿
-@{
-    ViewBag.Title = "Comment";
-}
+﻿@Scripts.Render("~/bundles/jquery")
 
-<h2>Comment</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <h2>Комментарии |2|</h2>
+        </div>
+        <div class="col-9 text-right">
+            <button id="addacomment" class="btn btn-primary">Добавить комментарий</button>
+        </div>
+    </div>
+    <div class="row" id="addcomment" style="display: none;">
+        <div class="col">
+            @using (Html.BeginForm("Comment", "Home", FormMethod.Post))
+            {
+                <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">Имя</label>
+                    <div class="col">
+                        <input type="text" class="form-control" id="inputName" placeholder="Ваше имя..." name="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputComment" class="col-sm-2 col-form-label">Комментарий</label>
+                    <div class="col">
+                        <input type="text" class="form-control" id="inputComment" placeholder="Ваш комментарий" name="CommentText">
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Отправить"/>
+            }
+        </div>
+    </div>
+    <div id="comments">
+        <hr>
+        <div class="row comment">
+            <div class="head">
+                <small><strong class='user'>Diablo25</strong> 30.10.2017 12:13</small>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non lorem elementum, accumsan magna sed, faucibus mauris. Nulla pellentesque ante nibh, ac hendrerit ante fermentum sed. Nunc in libero dictum, porta nibh pellentesque, ultrices dolor. Curabitur nunc ipsum, blandit vel aliquam id, aliquam vel velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sit amet mi dignissim, pretium justo non, lacinia libero. Nulla facilisi. Donec id sem velit. </p>
+        </div>
+        <hr>
+        <div class="row comment">
+            <div class="head">
+                <small><strong class='user'>Giesche</strong> 30.10.2017 12:13</small>
+            </div>
+            <p>Praesent molestie ante nec metus convallis aliquam. Ut aliquam tincidunt mollis. Maecenas et ex sit amet est vehicula ultrices sed sit amet elit. Suspendisse potenti. Aenean et quam ut purus convallis porttitor. Mauris porttitor pretium elementum. Duis blandit elit tincidunt ipsum ultricies, ut faucibus lorem facilisis. Proin ipsum turpis, pharetra in lorem ac, porta ullamcorper velit. Proin gravida odio eget elit ultricies sodales. Vivamus vel tincidunt ligula. Proin pulvinar pellentesque velit eget luctus. Aliquam vitae enim ut purus vestibulum sollicitudin sit amet eget lacus. Nunc tempus fringilla tincidunt. </p>
+        </div>
+        <hr>
+    </div>
+</div>
 
+<script>
+    $('#addacomment').click(function () {
+        $('#addcomment').toggle();
+    })
+</script>
