@@ -14,3 +14,6 @@
 ![Alt Text](background_video.gif)
 ![Image alt](main_view.png)
 ![Image alt](main_view_2.png)
+![Image alt](comments_1.png)
+![Image alt](comments_2.png)
+![Image alt](comments_3.png)
