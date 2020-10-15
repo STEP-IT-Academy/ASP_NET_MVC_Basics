@@ -33,6 +33,7 @@ hr {
 }
 
 .comment {
+    margin-top: 15px;
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 30px;
@@ -127,6 +128,8 @@ body::before {
 }
 
 #comments {
+    -ms-border-radius: 25px;
+    border-radius: 25px;
     background-color: white;
 }
 
@@ -136,4 +139,13 @@ body::before {
     min-height: 50px;
     height: 100%;
     width: 100%;
+}
+
+.coments-text {
+    margin-bottom: 5px;
+}
+
+.img-fluid {
+    max-width: 20%;
+    height: auto;
 }

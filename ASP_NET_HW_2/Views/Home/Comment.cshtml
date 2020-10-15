@@ -1,55 +1,83 @@
-﻿@Scripts.Render("~/bundles/jquery")
+﻿@using ASP_NET_HW_2.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Comment>
+
+@Scripts.Render("~/bundles/jquery")
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="coments-text row">
         <div class="col-3">
-            <h2>Комментарии |2|</h2>
+            <h2>Комментарии |@(@Model?.Count() ?? 0)|</h2>
         </div>
         <div class="col-9 text-right">
             <button id="addacomment" class="btn btn-primary">Добавить комментарий</button>
+            <input id="goToIndex" type="submit" class="btn btn-primary" value="На главную" />
         </div>
     </div>
-    <div class="row" id="addcomment" style="display: none;">
-        <div class="col">
-            @using (Html.BeginForm("Comment", "Home", FormMethod.Post))
-            {
+
+    @using (Html.BeginForm("Comment", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row" id="addcomment" style="display: none;">
+            <div class="col">
+                <input type="hidden" name="DateTime" value="@DateTime.Now" />
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Имя</label>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputName" placeholder="Ваше имя..." name="Name">
+                        <input type="text" class="form-control" id="inputName" placeholder="Ваше имя..." name="Name" aria-describedby="validationTooltipUsernamePrepend" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputComment" class="col-sm-2 col-form-label">Комментарий</label>
                     <div class="col">
-                        <input type="text" class="form-control" id="inputComment" placeholder="Ваш комментарий" name="CommentText">
+                        <input type="text" class="form-control" id="inputComment" placeholder="Ваш комментарий" name="CommentText" aria-describedby="validationTooltipUsernamePrepend" required>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-primary" value="Отправить"/>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="addFile">Добавить картинку</label>
+                    <div class="col">
+                        <input type="file" class="form-control-file" id="addFile" accept=".jpg, .jpeg, .png" name="image">
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Отправить" />
+            </div>
+        </div>
+    }
+
+    <div id="comments">
+        @{
+            System.Diagnostics.Debug.Assert(Model != null, nameof(Model) + " != null");
+        }
+        <div class="container-fluid">
+            @foreach (var comment in Model)
+            {
+                <div class="row">
+                    <div class="comment col-md">
+                        <small><strong class='user'>@comment.Name</strong> @comment.DateTime</small>
+                        <p>@comment.CommentText </p>
+                        @if (@comment.ImageData != null)
+                        {
+                            @Html.Raw("<img class='img-fluid rounded float-left' src=\"data:image/jpeg;base64," + Convert.ToBase64String(@comment.ImageData ?? Array.Empty<byte>()) + "\" />")
+                        }
+                    </div>
+                </div>
             }
         </div>
     </div>
-    <div id="comments">
-        <hr>
-        <div class="row comment">
-            <div class="head">
-                <small><strong class='user'>Diablo25</strong> 30.10.2017 12:13</small>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non lorem elementum, accumsan magna sed, faucibus mauris. Nulla pellentesque ante nibh, ac hendrerit ante fermentum sed. Nunc in libero dictum, porta nibh pellentesque, ultrices dolor. Curabitur nunc ipsum, blandit vel aliquam id, aliquam vel velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sit amet mi dignissim, pretium justo non, lacinia libero. Nulla facilisi. Donec id sem velit. </p>
-        </div>
-        <hr>
-        <div class="row comment">
-            <div class="head">
-                <small><strong class='user'>Giesche</strong> 30.10.2017 12:13</small>
-            </div>
-            <p>Praesent molestie ante nec metus convallis aliquam. Ut aliquam tincidunt mollis. Maecenas et ex sit amet est vehicula ultrices sed sit amet elit. Suspendisse potenti. Aenean et quam ut purus convallis porttitor. Mauris porttitor pretium elementum. Duis blandit elit tincidunt ipsum ultricies, ut faucibus lorem facilisis. Proin ipsum turpis, pharetra in lorem ac, porta ullamcorper velit. Proin gravida odio eget elit ultricies sodales. Vivamus vel tincidunt ligula. Proin pulvinar pellentesque velit eget luctus. Aliquam vitae enim ut purus vestibulum sollicitudin sit amet eget lacus. Nunc tempus fringilla tincidunt. </p>
-        </div>
-        <hr>
+</div>
+
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        @Html.PagedListPager(Model, page => Url.Action("Comment", new { page }))
     </div>
 </div>
 
 <script>
-    $('#addacomment').click(function () {
+    $('#addacomment').click(function() {
         $('#addcomment').toggle();
-    })
+    });
+
+    $("#goToIndex").click(function () {
+        location.href = '@Url.Action("Index","Home")';
+    });
 </script>
