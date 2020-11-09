@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_NET_HW_2", "ASP_NET_HW_2\ASP_NET_HW_2.csproj", "{ABB79385-66B2-499E-9C8D-7BD7E202C979}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_NET_HW_3", "ASP_NET_HW_2\ASP_NET_HW_3.csproj", "{ABB79385-66B2-499E-9C8D-7BD7E202C979}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
